@@ -1,39 +1,71 @@
-/* bottom right image*/
-@media screen and (min-width: 1200px) and (max-width: 1400px){
-    .homer {
-        background: url("homer.jpg") 300px 300px;
-        width: 290px;
-        height: 295px;
-        color: pink;
-    }
-}
-/*bottom left image*/
-@media screen and (min-width: 1200px) and (max-width: 1400px){
-    .homer {
-        background: url("homer.jpg") 300px 0px;
-        width: 290px;
-        height: 295px;
-        
-    }
-}
-/*top right image*/
-@media screen and (min-width: 1400px) and (max-width: 1600px){
-    .homer {
-        background: url("homer.jpg") 0px 300px;
-        width: 325px;
-        height: 325px;
-        
-    }
-}
-
 /*top left image*/
 @media screen and (min-width: 1600px){
     .homer {
         background: url("homer.jpg");
         width: 290px;
-        height: 295px;
-       
+        height: 295px;   
     }
 }
+
+/*top right image*/
+@media screen and (min-width: 1400px) and (max-width: 1600px){
+    .homer {
+        background: url("homer.jpg") 330px 0px;
+        width: 290px;
+        height: 295px;
+        
+    }
+}
+
+/*bottom left image*/
+@media screen and (min-width: 1200px) and (max-width: 1400px){
+    .homer {
+        background: url("homer.jpg") 0px -325px;
+        width: 290px;
+        height: 295px;
+        
+    }
+}
+
+/* bottom right image*/
+@media screen and (min-width: 1000px) and (max-width: 1200px){
+    .homer {
+        background: url("homer.jpg") 310px -325px;
+        width: 290px;
+        height: 295px;
+    }
+}
+/*AFTER FULLING GOING IN, ABOUT TO GO BACK OUT*/
+
+/* bottom left image*/
+@media screen and (min-width: 800px) and (max-width: 1000px){
+    .homer {
+        background: url("homer.jpg") 0px -325px;
+        width: 290px;
+        height: 295px;
+    }
+}
+/*top right image*/
+@media screen and (min-width: 600px) and (max-width: 800px){
+    .homer {
+        background: url("homer.jpg") 310px 05px;
+        width: 290px;
+        height: 295px;
+        
+    }
+}
+/* top left image*/
+@media screen and (max-width: 600px){
+    .homer {
+        background: url("homer.jpg");
+        width: 290px;
+        height: 295px;
+    }
+}
+
+
+
+
+
 
 
