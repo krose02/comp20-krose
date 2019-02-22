@@ -15,49 +15,53 @@
         <track label="English" kind="captions" srclang="en" 
         src="captions/vtt/sintel-en.vtt" default>
 </video>
-<div id="lyrics">
-    <p>Lisa:
-        Come gather round, children,
-        It's high time ye learned
-        'Bout a hero named Homer
-        And a devil named Burns.
-    </p>
-    <p>We'll march 'till we drop 
-        The girls and the fellas.
-        We'll fight 'till the death 
-        Or else fold like umbrellas.
-    </p>
-    <p>So we'll march day and night
-        By the big cooling tower.
-        They have the plant
-    </p>
-    <p>But we have the power. 
-        Lenny:
-        Now do "Classical Gas!"
-    </p>
-    <p>So we'll march day and night
-        By the big cooling tower.
-        They have the plant
-        
-        But we have the power.</p>
+<div id="lyrics">   
+    <p></p> 
 </div>
 
-<script>
-    var subtitles = document.getElementById('lyrics').addEventListener('click');
-    for (var i = 0; i < video.textTracks.length; i++){
-        video.textTracks[i].mode = 'hidden';
+<script>    
+    var vid = document.getElementById("butwehavethepower");
+    vid.addEventListener("timeupdate",displayLyrics);
+    
+    function displayLyrics(){
+        document.getElementById("lyrics").innerHTML = vid.currentTime;
+
+        if (vid.currentTime < 6) {
+            document.getElementById("lyrics").innerHTML = "(Guitar Playing)";
+        }
+        else if (vid.currentTime < 17){
+            document.getElementById("lyrics").innerHTML = "Lisa: Come gather round,"+
+                                     " children. It's high time ye learned 'Bout " +
+                                        "a hero named Homer And a devil named Burns.";
+        }
+        else if (vid.currentTime < 27){
+            document.getElementById("lyrics").innerHTML = "We'll march 'till we drop "+
+                                                        "The girls and the fellas. "+
+                                                        "We'll fight 'till the death "+
+                                                        "Or else fold like umbrellas."
+        }
+        else if (vid.currentTime < 37) {
+            document.getElementById("lyrics").innerHTML = "";
+        }
+        else if (vid.currentTime < 52) {
+            document.getElementById("lyrics").innerHTML = "So we'll march day "+ 
+                                                        "and night By the big "+ 
+                                                        "cooling tower. They have "+
+                                                        "the plant But we have the power.";
+        }
+        else if (vid.currentTime < 71) {
+            document.getElementById("lyrics").innerHTML = "";
+        }
+        else if (vid.currentTime < 91) {
+            document.getElementById("lyrics").innerHTML = "So we'll march day "+ 
+                                                        "and night By the big "+ 
+                                                        "cooling tower. They have "+
+                                                        "the plant But we have the power.";
+        }
+        else{
+            document.getElementById("lyrics").innerHTML = "";
+        }
     }
-    var subtitlesMenu;
-if (video.textTracks) {
-   var df = document.createDocumentFragment();
-   var subtitlesMenu = df.appendChild(document.createElement('ul'));
-   subtitlesMenu.className = 'subtitles-menu';
-   subtitlesMenu.appendChild(createMenuItem('subtitles-off', '', 'Off'));
-   for (var i = 0; i < video.textTracks.length; i++) {
-      subtitlesMenu.appendChild(createMenuItem('subtitles-' + video.textTracks[i].language, video.textTracks[i].language, video.textTracks[i].label));
-   }
-   videoContainer.appendChild(subtitlesMenu);
-}
 </script>
 </body>
 </html>	
