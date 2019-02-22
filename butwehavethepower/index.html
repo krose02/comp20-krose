@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Union Strike Folk Song</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+<h1 id="title">Union Strike Folk Song</h1>
+
+<video src="https://www.cs.tufts.edu/comp/20/butwehavethepower.mp4" 
+        id="butwehavethepower" controls>
+        <track label="English" kind="captions" srclang="en" 
+        src="captions/vtt/sintel-en.vtt" default>
+</video>
+<div id="lyrics">
+    <p>Lisa:
+        Come gather round, children,
+        It's high time ye learned
+        'Bout a hero named Homer
+        And a devil named Burns.
+    </p>
+    <p>We'll march 'till we drop 
+        The girls and the fellas.
+        We'll fight 'till the death 
+        Or else fold like umbrellas.
+    </p>
+    <p>So we'll march day and night
+        By the big cooling tower.
+        They have the plant
+    </p>
+    <p>But we have the power. 
+        Lenny:
+        Now do "Classical Gas!"
+    </p>
+    <p>So we'll march day and night
+        By the big cooling tower.
+        They have the plant
+        
+        But we have the power.</p>
+</div>
+
+<script>
+    var subtitles = document.getElementById('lyrics').addEventListener('click');
+    for (var i = 0; i < video.textTracks.length; i++){
+        video.textTracks[i].mode = 'hidden';
+    }
+    var subtitlesMenu;
+if (video.textTracks) {
+   var df = document.createDocumentFragment();
+   var subtitlesMenu = df.appendChild(document.createElement('ul'));
+   subtitlesMenu.className = 'subtitles-menu';
+   subtitlesMenu.appendChild(createMenuItem('subtitles-off', '', 'Off'));
+   for (var i = 0; i < video.textTracks.length; i++) {
+      subtitlesMenu.appendChild(createMenuItem('subtitles-' + video.textTracks[i].language, video.textTracks[i].language, video.textTracks[i].label));
+   }
+   videoContainer.appendChild(subtitlesMenu);
+}
+</script>
+</body>
+</html>	
