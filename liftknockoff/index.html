@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Lift Knock Off</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+
+<h1 id="title">Lift Knock Off</h>
+
+<script>    
+    geo = navigator.geolocation;
+    var lat = 999999;
+    var lng = -999999;
+ 
+    function getLocation(){
+       console.log("inside get location");
+       navigator.geolocation.getCurrentPosition(function(somePos){
+           console.log("inside second function");
+           lat = somePos.coords.latitude;
+           lng = somePos.coords.longitude;
+           printLocation();
+
+           var request = new XMLHttpRequest();
+           var params = "username=UdtR6A4Z&lat=" + lat + "&lng=" + lng;
+           request.open("POST","https://hans-moleman.herokuapp.com/rides", true);
+           request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+           request.onreadystatechange = function(){
+               if (request.readyState == 4 && request.status == 200) {
+                    console.log("lat="+lat+" lng="+lng);
+                    data = request.responseText;
+                    console.log(data);
+                    loc = JSON.parse(data);  
+                    console.log(loc.passengers);
+                    
+                    
+                    
+                }
+                else if (request.readyState == 4 && request.status != 200) {
+                    // think 404 or 500
+                    document.getElementById("location").innerHTML = 
+                    "<p>Whoops, something went terribly wrongo</p>";
+                }
+            }
+       console.log("end of getLocation");
+       console.log(params);
+       request.send(params);
+    
+       });
+    }
+
+    function printLocation(){
+        console.log("inside printLocation");
+        elem = document.getElementById("location");
+        elem.innerHTML ='<p class="fun">' + lat + ", " + lng + "</p>";
+    }
+    
+</script>
+<body onload = "getLocation()">
+    <p id ="location"></p>
+
+</body>
+</html>	
