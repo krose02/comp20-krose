@@ -1,1 +1,10 @@
+/*this is the style sheet for the index.html*/
 
+html,body{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+#map{
+height: 100%;
+}

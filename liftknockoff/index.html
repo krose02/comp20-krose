@@ -3,51 +3,57 @@
 <head>
 <meta charset="utf-8" />
 <title>Lift Knock Off</title>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9sQaGQMUn1TEZG3C11LjRlpQAppS4WGk"async defer></script>
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 
 <h1 id="title">Lift Knock Off</h>
 
-<script>    
+<script >    
     geo = navigator.geolocation;
     var lat = 999999;
     var lng = -999999;
- 
+
+    var request = new XMLHttpRequest();
+
     function getLocation(){
-       console.log("inside get location");
-       navigator.geolocation.getCurrentPosition(function(somePos){
+        request.open("POST","https://hans-moleman.herokuapp.com/rides", true);
+
+        request.onreadystatechange = function() {
+            if (request.readyState == 4 && request.status == 200) {
+                console.log("lat="+lat+" lng="+lng);
+                data = request.responseText;
+                console.log(data);
+                rides = JSON.parse(data);  
+            
+                if (rides.passengers == undefined){
+                    // list is vehicles
+                }
+                else{
+                    // list is passengers
+                }
+            }
+            else if (request.readyState == 4 && request.status != 200) {
+                // think 404 or 500
+                document.getElementById("location").innerHTML = 
+                "<p>Whoops, something went terribly wrongo</p>";
+            }
+        }
+        console.log("inside get location");
+        navigator.geolocation.getCurrentPosition(function(somePos){
            console.log("inside second function");
            lat = somePos.coords.latitude;
            lng = somePos.coords.longitude;
            printLocation();
 
-           var request = new XMLHttpRequest();
            var params = "username=UdtR6A4Z&lat=" + lat + "&lng=" + lng;
-           request.open("POST","https://hans-moleman.herokuapp.com/rides", true);
            request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 
-           request.onreadystatechange = function(){
-               if (request.readyState == 4 && request.status == 200) {
-                    console.log("lat="+lat+" lng="+lng);
-                    data = request.responseText;
-                    console.log(data);
-                    loc = JSON.parse(data);  
-                    console.log(loc.passengers);
-                    
-                    
-                    
-                }
-                else if (request.readyState == 4 && request.status != 200) {
-                    // think 404 or 500
-                    document.getElementById("location").innerHTML = 
-                    "<p>Whoops, something went terribly wrongo</p>";
-                }
-            }
-       console.log("end of getLocation");
-       console.log(params);
-       request.send(params);
-    
+            console.log("end of getLocation");
+            console.log(params);
+            request.send(params);
+            init_map();   
        });
     }
 
@@ -56,10 +62,40 @@
         elem = document.getElementById("location");
         elem.innerHTML ='<p class="fun">' + lat + ", " + lng + "</p>";
     }
+
+    function init_map(){
+        console.log("in init mpa");
+        // assigning user location to landmark
+        var userLandmark = new google.maps.LatLng(lat,lng);
+        // setting up map
+        var myOptions = {
+            zoom: 12,
+            center: userLandmark,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        // Create the map in the "map" <div>
+        var map = new google.maps.Map(document.getElementById("map"), 
+                                              myOptions);
+        // creating marker
+        var marker = new google.maps.Marker({
+            position: userLandmark,
+            title: "You"
+        });
+        marker.setMap(map);
+        // This is a global info window...
+        var infowindow = new google.maps.InfoWindow();
+        
+        // Open info window on click of marker
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(marker.title);
+            infowindow.open(map, marker);
+        });
+    }
+        
     
 </script>
-<body onload = "getLocation()">
+<body onload="getLocation()">
     <p id ="location"></p>
-
+    <div id = "map"></div>
 </body>
 </html>	
