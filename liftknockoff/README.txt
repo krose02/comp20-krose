@@ -9,5 +9,5 @@ of this project that didn't funciton as planed was the distance user is to the n
 I ran into an issue with trying to display the info in the info window of the user.
 
 Citaiton:
-I used code from this cite to calculate the distance between two locations:
+I used code from this site to calculate the distance between two locations:
     https://jsperf.com/haversine-salvador/8
