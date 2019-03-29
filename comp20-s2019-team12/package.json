@@ -1,0 +1,24 @@
+{
+  "name": "comp20-s2019-team12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "unirest": "^0.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuftsdev/comp20-s2019-team12.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuftsdev/comp20-s2019-team12/issues"
+  },
+  "homepage": "https://github.com/tuftsdev/comp20-s2019-team12#readme"
+}
