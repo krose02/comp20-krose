@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Lift Knock Off</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9sQaGQMUn1TEZG3C11LjRlpQAppS4WGk" async defer></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+   
+</head>
+<body>
+    <h1>Assignment 4 Write Up</h1>
+    <h2 class = "title">Introduction</h2>
+    <p class = "info"> For this assignment, I was given the task of hacking into my
+                       Professor's implementation of a web application server. The purpose
+                       of this assignment was to test the security strength of his application. </p>
+    <h2 class = "title">Methodology</h2>
+    <p class = "info">To achieve the task that I had been given, my approach to testing
+                      the security strength of this application was see if I could enter
+                      or edit any information that I wasn't supposed to have access to. To
+                      do this, I used cross site scripting, curl, mongodb injeciton.</p>
+    <h2 class = "title">Abstract of Findings</h2>
+    <p class = "info">After testing the security strength of my professors application,
+                      I came across a few issues that led to weaknesses in his product.
+                      The most prevelant issue was data manipulation within his database.</p>
+    <h2 class = "title">Issues Found</h2>
+    <p class = "info"> 1) The most prevelant issue was that I was able to add passengners 
+                       to the database he created. As an outside user, I shouldn't be able
+                       to add or edit any of the information that is being held in the 
+                       database for his application. One instance of be adding in data into
+                       the database is below. I would classify this a a medium securty threat
+                       because being able to insert false data is a serious issue but because 
+                       existing data wasn't deleted or changed I wouldn't classify this a high 
+                       risk. I found this area of weaknesses by inserting data using curl.
+                       To prevent a hack like this from occuring again, Ming could secure
+                       his app by making sure that only people with the appropriate credentials
+                       can edit the data in the database.<br></p> 
+    <img src = "databasehack.png"> <br>
+    <img src = "curlhack.png"> <br>
+    <img src = "heyhack.png" ><br>
+    <p class = "info">2) The second most relevant issue was an instance of bad programming practice.
+                      In Ming's code, he has the list of vehicles in a JSON object in his code. If 
+                      someone were to get visible access to his code, they would be able to see the 
+                      data that they shouldn't have access to. Access to this list of vehicles could
+                      enable a hacker to use that information to hack into the database, and manipulate 
+                      even more data. To prevent this from happening, Ming could have put the data in 
+                      a differet file and could have references it from the server.js file. I would level
+                      this as a high security risk because data is blatantly displayed in the code.<br></p>
+    <img src = "vehicles.png">
+    <p class = "info">3) I couldn't find a third issue with Ming's code. With this point, I would like 
+                         to highlight something he did that prevented a security breach. He made sure in his 
+                         code to see if the "lat" and "lng" being passed into the databased were float numbers.
+                         In doing this, he was able to prevent hackers from using the $ne opporator to bypass the 
+                         system and insert bad data that could have been used to retrieve data from the database. This 
+                         precaution that he took prevented a medium risk hack from occuring.<br> </p>
+    <img src = "isFloat.png">
+
+    <h2 class = "title">Conclusion</h2>
+    <p class = "info">Overall, Ming's application was reasonably secure. He took some steps to prevent hackers
+                      from accessing his data by checking that numbers inserted into the databse were floats
+                      and he also didn't include his heroku username and password into his code while he was setting up
+                      his mongodb database.
+    </p>
+    <h2 class = "title">References</h2>
+    <p class = "info">Links used for my work: https://blog.websecurify.com/2014/08/hacking-nodejs-and-mongodb.html <br>
+        https://stackoverflow.com/questions/23137044/add-a-customized-message-to-the-response-header <br>
+        https://www.veracode.com/security/xss <br>
+        https://www.owasp.org/index.php/Testing_for_Reflected_Cross_site_scripting_(OTG-INPVAL-001)#Example_1 <br> </p>
+
+  
+
+</body>
+</html>	
