@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "express": "^4.16.4",
+    "pug": "^2.0.3",
     "unirest": "^0.6.0"
   },
   "devDependencies": {},
+  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "index.js"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tuftsdev/comp20-s2019-team12.git"

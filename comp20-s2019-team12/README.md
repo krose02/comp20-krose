@@ -48,19 +48,19 @@ An interactive version of these wireframes can also be found using the following
 https://xd.adobe.com/view/a74c248e-0771-4b30-51b8-bd3f2bdda157-d17d/
 
 Landing Page<br/>
-<image src = "Landing Page.png">
+<image src = "wireframes/Landing Page.png">
 
 Options Page<br/>
-<image src = "Options.png">
+<image src = "wireframes/Options.png">
 
 Results Page<br/>
-<image src = "Results Page.png">
+<image src = "wireframes/Results Page.png">
 
 Recipe Page<br/>
-<image src = "Recipe Page.png">
+<image src = "wireframes/Recipe Page.png">
 
 Shopping List Generator<br/>
-<image src = "Shopping List Generator.png">
+<image src = "wireframes/Shopping List Generator.png">
   
 # Comments by Ming
 * I will tell you what I wrote to team 9: while you can do this project, this project will not score well with regards to originality (been there, done that, fall 2017)
