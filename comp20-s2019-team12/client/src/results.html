@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Results | Hungrindr</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="results.css">
+</head>
+<body id="results">
+    <div class="sidebar">
+        <a href="index.html"><i class="fas fa-chevron-left"></i></a><img id="logo" src="images/hungrindr.png">
+        <p>Here are the most delicious recipes we could find for:</p>
+        <div class="ing">apples</div>
+        <div class="ing">bread</div>
+        <div class="ing">sugar</div>
+    </div>
+    <div class="results">
+        <div class="result-card">
+            <div class="result-image" style="background-image:url(https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/one_pot_chorizo_and_15611_16x9.jpg)"></div>
+            <div class="result-content">
+                <a href="hungrindr.herokuapp.com/recipe?recipeid"><h2>Delicious Chicken</h2></a>
+                <p>From <a class="source" href="">website.com</a>  |   Match: <a class="match-score">90%</a></p>
+                <hr>
+                <ul class="ings">
+                    <li class="match"><i class="fas fa-check"></i>ingredient 1</li>
+                    <li class="match"><i class="fas fa-check"></i>ingredient 2</li>
+                    <li class="match"><i class="fas fa-check"></i>ingredient 3</li>
+                    <li class="miss"><i class="fas fa-times"></i>ingredient 4</li>
+                    <li class="miss"><i class="fas fa-times"></i>ingredient 5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

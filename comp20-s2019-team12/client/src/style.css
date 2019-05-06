@@ -1,0 +1,118 @@
+/*INGREDIENT SELECTION PAGE */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Trebuchet MS', sans-serif;
+  }  
+
+body {
+    margin: 0;
+    background-image: url("images/vegetables.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.ing-box {
+    height: 40px;
+    width: 300px;
+    background-color: rgb(221, 221, 221);
+    border: 5px;
+    border-color: black;
+    margin: 0px 0px 20px 0px;
+    padding: 0px 20px;
+    border-radius: 5px;
+}
+
+.ing-box:focus {
+    outline: none;
+    background-color: rgb(243, 240, 193);
+}
+
+p {
+    margin: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 0.8rem;
+}
+
+.delete {
+    display: inline-block;
+    position: relative;
+    right: 25px;
+}
+
+.search-info {
+    border: 10px;
+    text-align: center;
+    height: 600px;
+    background-color: rgb(221, 221, 221);
+    border-color: yellow;
+}
+
+/*RECIPE RESULTS PAGE*/
+.recipes-list {
+}
+
+.recipe_info {
+    height: 300px;
+    width: 300px;
+    border: 5px;
+    border-color: black;
+    margin: 10px 10px 20px 10px;
+    padding: 0px 20px;
+    border-radius: 5px;
+}
+
+.recipe-img {
+    width: 100px;
+    height: 100px;
+}
+
+.new-recipe {
+}
+
+.my-container {
+    margin-top: 30px;
+}
+
+
+.content {
+    width: 30%;
+    height: 100%;
+    float: left;
+    padding: 1;
+    background-color: rgba(0,0,0,0.45);
+	letter-spacing: 0px;
+    padding: 10%;
+    line-height: 20px;
+    font-weight: 200;
+}
+
+.heading {
+    color: white;
+}
+
+.buttons {
+
+}
+
+.logo {
+    height: 50px;
+    padding: 20px 30px;
+    float: right;
+}
+
+input[type="submit"] {
+    border: 0;
+    border-radius: 0.25rem;
+    background: #ED553B;
+    color: white;
+    font-size: 1.3rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0.5rem 0.8rem;
+    margin: 1rem;
+    margin-left: 0;
+}

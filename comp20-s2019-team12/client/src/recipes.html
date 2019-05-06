@@ -1,0 +1,102 @@
+<!-- Page that renders after a user has selected their ingredients -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Recipe Results Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+
+    <script>
+
+      //var request = new XMLHttpRequest();
+
+      // function init()
+      // {
+      //   request.open("GET", "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=20&ranking=1&ingredients="+ingredients"", true);
+
+      //   request.send("ingredients list")
+      // }
+
+      // request.onreadystatechange = function()
+      // {
+      //   if (request.readyState == 4 && request.status == 200){
+      //     var recipes = request.responseText;
+      //     var recipes_list = JSON.parse(recipes);
+
+      //   }
+      // }
+
+    	function init()
+    	{
+    		var recipes_list = [{"id":595948,"title":"Vitamin C Booster Smoothie","image":"https://spoonacular.com/recipeImages/595948-312x231.jpg","imageType":"jpg","usedIngredientCount":2,"missedIngredientCount":1,"missedIngredients":[{"id":11124,"amount":2,"unit":"","unitLong":"","unitShort":"","aisle":"Produce","name":"carrots","original":"2 regular carrots (or 1 regular and 4 baby carrots), washed and peeled and chopped","originalString":"2 regular carrots (or 1 regular and 4 baby carrots), washed and peeled and chopped","originalName":"regular carrots (or 1 regular and 4 baby carrots), washed and peeled and chopped","metaInformation":["washed and peeled and chopped","(or 1 regular and 4 baby carrots)"],"image":"https://spoonacular.com/cdn/ingredients_100x100/sliced-carrot.png"}],"usedIngredients":[{"id":9003,"amount":1,"unit":"","unitLong":"","unitShort":"","aisle":"Produce","name":"apple","original":"1 apple, cored and chopped","originalString":"1 apple, cored and chopped","originalName":"apple, cored and chopped","metaInformation":["cored","chopped"],"image":"https://spoonacular.com/cdn/ingredients_100x100/apple.jpg"},{"id":9200,"amount":0.5,"unit":"","unitLong":"","unitShort":"","aisle":"Produce","name":"orange","original":"1/2 orange, peeled and de-segmented","originalString":"1/2 orange, peeled and de-segmented","originalName":"orange, peeled and de-segmented","metaInformation":["peeled"],"image":"https://spoonacular.com/cdn/ingredients_100x100/orange.png"}],"unusedIngredients":[],"likes":2319},{"id":507138,"title":"Smoothie Saturday","image":"https://spoonacular.com/recipeImages/507138-312x231.jpg","imageType":"jpg","usedIngredientCount":2,"missedIngredientCount":1,"missedIngredients":[{"id":11124,"amount":1,"unit":"","unitLong":"","unitShort":"","aisle":"Produce","name":"carrot","original":"1 carrot [chopped into chunks]","originalString":"1 carrot [chopped into chunks]","originalName":"carrot [chopped into chunks]","metaInformation":[],"image":"https://spoonacular.com/cdn/ingredients_100x100/sliced-carrot.png"}],"usedIngredients":[{"id":9003,"amount":1,"unit":"","unitLong":"","unitShort":"","aisle":"Produce","name":"apple","original":"1 apple [chopped]","originalString":"1 apple [chopped]","originalName":"apple [chopped]","metaInformation":[],"image":"https://spoonacular.com/cdn/ingredients_100x100/apple.jpg"},{"id":9200,"amount":1,"unit":"","unitLong":"","unitShort":"","aisle":"Produce","name":"orange","original":"1 orange [peeled]","originalString":"1 orange [peeled]","originalName":"orange [peeled]","metaInformation":[],"image":"https://spoonacular.com/cdn/ingredients_100x100/orange.png"}],"unusedIngredients":[],"likes":121},{"id":206013,"title":"Honeymoon Cocktail","image":"https://spoonacular.com/recipeImages/206013-312x231.jpg","imageType":"jpg","usedIngredientCount":2,"missedIngredientCount":1,"missedIngredients":[{"id":9152,"amount":0.5,"unit":"ounce","unitLong":"ounces","unitShort":"oz","aisle":"Produce","name":"lemon juice","original":"1/2 ounce fresh lemon juice","originalString":"1/2 ounce fresh lemon juice","originalName":"fresh lemon juice","metaInformation":["fresh"],"extendedName":"fresh lemon juice","image":"https://spoonacular.com/cdn/ingredients_100x100/lemon-juice.jpg"}],"usedIngredients":[{"id":9003,"amount":2,"unit":"ounces","unitLong":"ounces","unitShort":"oz","aisle":"Produce","name":"apple","original":"2 ounces Laird's Bonded Apple Brandy","originalString":"2 ounces Laird's Bonded Apple Brandy","originalName":"Laird's Bonded Apple Brandy","metaInformation":[],"image":"https://spoonacular.com/cdn/ingredients_100x100/apple.jpg"},{"id":9200,"amount":0.5,"unit":"ounce","unitLong":"ounces","unitShort":"oz","aisle":"Produce","name":"orange","original":"1/2 ounce Marie Brizard Orange Curaçao","originalString":"1/2 ounce Marie Brizard Orange Curaçao","originalName":"Marie Brizard Orange Curaçao","metaInformation":[],"image":"https://spoonacular.com/cdn/ingredients_100x100/orange.png"}],"unusedIngredients":[],"likes":49}];
+
+    	//iterate through recipes list and add to front end grid
+    		for (var i = 0; i < recipes_list.length; i ++) {
+
+    			// VARIABLES 
+    			var recipe_name = document.createTextNode(recipes_list[i].title);
+    			var br = document.createElement("br");
+    			var missedIngredientCount;
+				
+				if (recipes_list[i].missedIngredientCount != 1) {
+					missedIngredientCount = document.createTextNode("you are missing " + recipes_list[i].missedIngredientCount + " ingredients!");
+				} else {
+					missedIngredientCount = document.createTextNode("you are missing " + recipes_list[i].missedIngredientCount + " ingredient!");
+				}
+ 
+
+    			//outer div
+	    		var total_recipes = document.getElementById("recipes-list");
+
+	    		//new recipe div
+	    		var new_recipe = document.createElement('div');
+	    		new_recipe.setAttribute('class', 'row new-recipe');
+
+	    		//inner image div
+	    		var recipe_img_div = document.createElement('div');
+	    		var recipe_img = document.createElement('img');
+	    		recipe_img.setAttribute('class', 'col-3 recipe-img');
+	    		recipe_img.setAttribute('src', recipes_list[i].image);
+	    		recipe_img_div.appendChild(recipe_img);
+
+	    		//inner info div
+	    		var recipe_info = document.createElement('div');
+	    		recipe_info.setAttribute('class', 'col-9 recipe-info');
+	    		recipe_info.appendChild(recipe_name);
+				recipe_info.appendChild(br);
+	    		recipe_info.appendChild(missedIngredientCount);
+
+	    		new_recipe.appendChild(recipe_img);
+	    		new_recipe.appendChild(recipe_info);
+
+	    		total_recipes.append(new_recipe);
+    		}
+
+    	}
+		</script>
+
+</head>
+<body onload="init()">
+
+	<div class="container my-container"> 
+		<div class = "row">
+			<div class="col-4 search-info">
+				We found LENGTH recipes! 
+			</div>
+			<div class="col-8 recipes-list" id="recipes-list">
+			</div>
+		</div>
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

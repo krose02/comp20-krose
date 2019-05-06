@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hungrindr</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <script src="main.js"></script>
+</head>
+
+<body onload="init()">
+    <img class="logo" src="images/hungrindr.png">
+    <container class="content">
+        <div class="heading">
+            <h1>Welcome!</h1>
+            <h4>Have next to nothing in your fridge? We can make it work. Put in all the ingredients you have below:</h4>
+        </div>
+
+        <div id="ing-selection">
+            <form id="ing-form" method="GET" action="/results">
+            </form>
+            <form id="ing-form-add" onsubmit="addIng()" autocomplete="off">
+                <input type="text" name="ing-add" id="ing-add" class="ing-box" placeholder="Add ingredient"><br>
+            </form>
+        </div>
+
+        <input onclick="submitIng()" type="submit" form="ing-form" value="Find recipes">
+<!--         <button onclick="submitIng()">Next</button>
+ -->    </container>
+</body>
+</html>

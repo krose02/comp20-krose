@@ -1,0 +1,21 @@
+Comp20 Group Project
+Status Report #1
+4/5/19
+
+1. Accomplishments:
+	Successfully set up web server index.js to execute API calls using unirest (we are working on converting to using express because it is more universal with Node.js)
+	Successfully set up front end to get ingredients list from a user and to put list into a query string
+	Enabled delete and edit capability after user has entered an ingredient
+	When a user adds an ingredient the ingredient stays on the screen
+2. Challenges:
+	Converting from unirest framework to express
+	Determining how to make entering, editing and deleting ingredients easiest for the user
+	Deciding what to prioritize when returning a recipe list- we decided to prioritize by missed ingredients (least missed ingredients shown first) and next by most liked recipes
+3. Goals for next week:
+	Finish the recipe search API call to successfully return a list of recipes based on our decided priorities
+	Get started on enabling the recipes API call to get recipes based on specific criteria such as dietary restrictions and cook time
+	Get started on front end work to be able to test API calls more easily
+	
+# Comments by Ming
+* Lots of wins
+* "Finish the recipe search API call to successfully return a list of recipes based on our decided priorities" => Huge

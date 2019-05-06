@@ -1,0 +1,23 @@
+Comp20 Group Project
+Status Report #2
+4/11/19
+
+1. Accomplishments:
+    Began Heroku server configuration
+    Successfully response of JSON array with all queried recipes from Spoonacular API
+    Successfully print the name and ID of each recipe
+    Added a 'delete' button for entered each previously entered ingredient
+	
+2. Challenges:
+    Realizing limitiations of not using libraries for front end work/ learning how to use Bootstrap
+    Functionality for deleting ingredients from HTML as well as the existing query string
+	Figure out parse the query string meaningfully
+
+3. Goals for next week:
+    Add functionality for deleting a previously entered ingredient in input form
+    Get started with front end for recipe results page
+    Create JSON array of recipes to use for testing until we integrate the front end with back end
+    Decide how we want to filter/rank recipes on the user's results page (or just default to Spoonacular's organization)
+	
+# Commments by Ming
+* No status report 3

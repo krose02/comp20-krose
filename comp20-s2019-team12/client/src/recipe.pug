@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel='stylesheet', href='recipe.css', type="text/css", media="screen")
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.8.1/css/all.css", integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf", crossorigin="anonymous")
+        script(src="main.js")
+        title #{recipe.name} | Hungrindr
+    body(id="recipe")
+        //- div(id="shop-list")
+        //-     div(class="shop-box")
+        //-         i(class="fas fa-times close-list")
+        //-         ul
+        //-             each ing in recipe.ings
+        //-                 if ing.miss
+        //-                     li= ing.ing
+        div(class="sidebar", style=`background-image:url(${recipe.photo})`)
+            a(onClick="javascript:history.go(-1)")
+                i(class="fas fa-chevron-left")
+            img(id="logo" src="images/hungrindr.png")
+        div(class="title")
+            h1= recipe.name
+            p
+                | From: 
+                a(class="source", href=`${recipe.source}`)= recipe.sourceName
+        div(class="recipe-body")
+            div(class="ings")
+                ul
+                    each ing in recipe.ings
+                        li 
+                            i(class="fas fa-circle " + (ing.miss ? "miss" : "match"))
+                            | #{ing.ing}
+                //- button(id="shop-bttn", onClick="genShop()") Make shopping list
+            div(class="vertical-divider")
+            div(class="steps")
+                p= recipe.steps
+            div(class="vertical-divider")
+            div(class="nutri-info")
+                h3
+                    b Calories
+                    |  in cal
+                div(class="nutri-container")
+                    div(class="nutri-container-small")
+                        p(class="nutri-number") #{recipe.nutri_info.calories *  recipe.servings}
+                        p TOTAL
+                    div(class="nutri-container-small")
+                        p(class="nutri-number") #{recipe.nutri_info.calories}
+                        p PER SERVING
+                h3
+                    b Carbs
+                    |  in g
+                div(class="nutri-container")
+                    div(class="nutri-container-small")
+                        p(class="nutri-number") #{recipe.nutri_info.carbs *  recipe.servings}
+                        p TOTAL
+                    div(class="nutri-container-small")
+                        p(class="nutri-number") #{recipe.nutri_info.carbs}
+                        p PER SERVING
+                h3
+                    b Fat
+                    |  in g
+                div(class="nutri-container")
+                    div(class="nutri-container-small")
+                        p(class="nutri-number") #{recipe.nutri_info.fat *  recipe.servings}
+                        p TOTAL
+                    div(class="nutri-container-small")
+                        p(class="nutri-number") #{recipe.nutri_info.fat}
+                        p PER SERVING
+                h3
+                    b Protein
+                    |  in g
+                div(class="nutri-container")
+                    div(class="nutri-container-small")
+                        p(class="nutri-number") #{recipe.nutri_info.protein *  recipe.servings}
+                        p TOTAL
+                    div(class="nutri-container-small")
+                        p(class="nutri-number") #{recipe.nutri_info.protein}
+                        p PER SERVING

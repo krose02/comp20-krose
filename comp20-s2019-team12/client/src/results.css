@@ -1,0 +1,140 @@
+/* Results page */
+
+#results > .sidebar {
+    width: calc(30% - 100px);
+    height: calc(100% - 100px);
+    position: fixed;
+    float: left;
+    background-color: #112F41;
+    padding: 50px;
+    color: white;
+}
+
+#results > .results {
+    width: calc(70% - 100px);
+    height: calc(100% - 100px);
+    float: right;
+    padding: 50px;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+a {
+    color: black;
+    text-decoration: none; /* no underline */
+  }
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    background-color: #ED553B;
+    border-radius: 3px;
+    padding: 6px 8px;
+    margin: 0px 10px 11px 0px;
+    color: white;
+}
+
+li.match {
+    background-color: #47AB6C;
+}
+
+.results > .result-card {
+    width: 90%;
+    background-color: rgb(241, 241, 241);
+    margin: 0 auto;
+    padding: 0px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.result-card > .result-image {
+    height: 350px;
+    width: 30%;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    display: block;
+}
+
+.result-card > .result-content {
+    float: left;
+    margin: 20px;
+    margin-top: 0;
+    width: calc(70% - 40px);
+}
+
+.result-content > ul {
+    display: inline-block;
+}
+
+.result-content > a > h2 {
+    color: #ED553B;
+    font-size: 3rem;
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+.result-content > p {
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+hr {
+    border: 0.5px solid grey;
+    background-color: grey;
+}
+
+a.likes {
+    color: #ED553B;
+}
+
+a.match-score {
+    color: #47AB6C;
+}
+
+i {
+    margin-right: 6px;
+}
+
+.ing {
+    width: 90%;
+    background-color: rgb(221, 221, 221);
+    border: 5px;
+    border-color: black;
+    margin: 0px 0px 20px 0px;
+    border-radius: 5px;
+    color: black;
+    padding: 15px;
+}
+
+#results > .sidebar > p {
+    font-size: 2rem;
+}
+
+#results > .sidebar > a > i {
+    font-size: 2rem;
+    color: white;
+}
+
+#logo {
+    width: 60%;
+    position: relative;
+    top: 13px;
+    margin-left: 20px;
+}
